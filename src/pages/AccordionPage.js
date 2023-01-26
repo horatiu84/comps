@@ -1,7 +1,25 @@
 import { useState } from "react";
 import { GoChevronDown, GoChevronLeft } from "react-icons/go";
 
-const Acordion = ({ items }) => {
+const items = [ 
+    {
+      id: '1f',
+      label : 'Can I use react on a project?',
+      content: "You can use React on any project you want!"
+    },
+    {
+      id: '2a',
+      label : 'Can I use javaScript on a project?',
+      content: "You can use javaScript on any project you want!"
+    },
+    {
+      id: '4a',
+      label : 'Can I use CSS on a project?',
+      content: "You can use CSS on any project you want!"
+    }
+  ]
+
+const AcordionPage = () => {
   const [expandedIndex, setExpandedIndex] = useState(-1);
 
   const handleClick = (nextIndex) => {
@@ -41,4 +59,4 @@ const Acordion = ({ items }) => {
   return <div className="border-x border-t rounded">{renderItems}</div>;
 };
 
-export default Acordion;
+export default AcordionPage;

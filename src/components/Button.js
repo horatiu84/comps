@@ -1,9 +1,5 @@
 import classNames from "classnames";
 
-const finalClassName = classNames({
-    'bg-blue-500' : true,
-    'text-yellow-500': true
-})
 
 
 const Button = ({

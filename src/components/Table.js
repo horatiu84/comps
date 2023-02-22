@@ -1,21 +1,25 @@
 import React from 'react'
+import { Fragment } from 'react'
 
-const Table = ({data,config}) => {
+const Table = ({data,config, keyFn}) => {
 
     const renderHeaders = config.map( (element)=> {
+        if (element.header) {
+            return <Fragment key={element.label}>{element.header()}</Fragment>;
+        }
         return (
             <th key={element.label}>{element.label}</th>
         )
     } )
 
-   
+    
 
-    const renderedRows = data.map((fruit) => {
+    const renderedRows = data.map((rowData) => {
         const renderedCells = config.map( (column) => {
-            return <td className='p-2' key={column.label}>{column.render(fruit)}</td>
+            return <td className='p-2' key={column.label}>{column.render(rowData)}</td>
         } )
         return (
-            <tr className='border-b' key={fruit.name}>
+            <tr className='border-b' key={keyFn(rowData)}>
                 {renderedCells}
             </tr>
         )
@@ -36,4 +40,4 @@ const Table = ({data,config}) => {
   )
 }
 
-export default Table
+export default Table;
